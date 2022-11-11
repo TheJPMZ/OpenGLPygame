@@ -47,3 +47,112 @@ void main()
     fragColor = texture(tex, UVs) * intensity;
 }
 '''
+
+toon_shader = '''
+#version 450 core
+
+out vec4 fragColor;
+
+in vec2 UVs;
+in vec3 norms;
+in vec3 pos;
+
+uniform vec3 pointLight;
+
+uniform sampler2D tex;
+
+void main()
+{
+    float intensity = dot(norms, normalize(pointLight -pos));
+    if(intensity < 0.25){
+        intensity = 0.25;
+    }
+    else if(intensity < 0.5){
+        intensity = 0.5;
+    }
+    else if(intensity < 0.75) {
+        intensity = 0.75;
+    }
+    else if(intensity <= 1){
+        intensity = 1;
+    }
+    fragColor = texture(tex, UVs) * intensity;
+}
+'''
+
+glow_shader = '''
+#version 450 core
+
+out vec4 fragColor;
+
+in vec2 UVs;
+in vec3 norms;
+in vec3 pos;
+
+uniform vec3 pointLight;
+
+uniform sampler2D tex;
+
+void main()
+{
+    float intensity = dot(norms, normalize(pointLight -pos));
+    fragColor = texture(tex, UVs) * intensity;
+    fragColor += vec4(1.0, 1.0, 1.0, 1.0) * intensity * 0.5;
+}
+'''
+
+glownt_shader = '''
+#version 450 core
+
+out vec4 fragColor;
+
+in vec2 UVs;
+in vec3 norms;
+in vec3 pos;
+
+uniform vec3 pointLight;
+
+uniform sampler2D tex;
+
+void main()
+{
+    float intensity = dot(norms, normalize(pointLight -pos));
+
+    fragColor = texture(tex, UVs) * intensity * 0.5;
+}
+'''
+
+toon_glow_shader = '''
+#version 450 core
+
+out vec4 fragColor;
+
+in vec2 UVs;
+in vec3 norms;
+in vec3 pos;
+
+uniform vec3 pointLight;
+
+uniform sampler2D tex;
+
+uniform float time;
+
+void main()
+{
+    float intensity = dot(norms, normalize(pointLight -pos));
+    if(intensity < 0.25){
+        intensity = 0.25;
+    }
+    else if(intensity < 0.5){
+        intensity = 0.5;
+    }
+    else if(intensity < 0.75) {
+        intensity = 0.75;
+    }
+    else if(intensity <= 1){
+        intensity = 1;
+    }
+    fragColor = texture(tex, UVs) * intensity;
+    fragColor += vec4(1.0, 1.0, 1.0, 1.0) * intensity * 0.5;
+}
+'''

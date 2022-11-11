@@ -47,6 +47,7 @@ x_level = 180
 
 running = True
 
+
 while running:
 
     keys = pygame.key.get_pressed()
@@ -57,6 +58,17 @@ while running:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 running = False
+            
+            elif event.key == pygame.K_1:
+                rend.setShaders(vertex_shader, fragment_shader)
+            elif event.key == pygame.K_2:
+                rend.setShaders(vertex_shader, toon_shader)
+            elif event.key == pygame.K_3:
+                rend.setShaders(vertex_shader, glow_shader)
+            elif event.key == pygame.K_4:
+                rend.setShaders(vertex_shader, glownt_shader)
+            elif event.key == pygame.K_5:
+                rend.setShaders(vertex_shader, toon_glow_shader)
 
     # * Camera movement
 
