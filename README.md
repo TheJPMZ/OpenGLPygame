@@ -38,7 +38,7 @@ There are 5 diferent models to choose from.
 
 1. Use the **Q** key to switch to the **School**.
 2. Use the **W** key to switch to the **Car**.
-3. Use the **E** key to switch to the ****.
+3. Use the **E** key to switch to the 😳 **Cool cat**.
 4. Use the **R** key to switch to the **Female**.
 5. Use the **T** key to switch to the **Pumpkin**.
 
