@@ -161,7 +161,7 @@ class Renderer(object):
 
         self.target = glm.vec3(0,0,0)
         self.angle = 0
-        self.camDistance = 5
+        self.camDistance = 2
 
 
         # ViewMatrix
