@@ -1,4 +1,4 @@
-vertex_shader ='''
+vertex_shader = '''
 #version 450 core
 
 layout (location = 0) in vec3 position;
@@ -28,7 +28,7 @@ void main()
 }
 '''
 
-fragment_shader ='''
+fragment_shader = '''
 #version 450 core
 
 out vec4 fragColor;
